@@ -24,3 +24,20 @@ for i in category_data:
     dataset.dtypes
 
 print(dataset.dtypes)
+
+# split data into training dataset and testing dataset
+
+# determine independent variable(x) and dependent variable(y)
+independent_variable = ['gender', 'NationalITy', 'PlaceofBirth', 'StageID', 'GradeID', 'SectionID', 'Topic',
+                        'Semester', 'Relation', 'ParentAnsweringSurvey', 'ParentschoolSatisfaction', 'StudentAbsenceDays', ]
+
+dependent_variable = ['Class']
+
+x = dataset[independent_variable]
+y = dataset[dependent_variable]
+x_train, x_test, y_train, y_test = train_test_split(
+    x, y, test_size=0.2, random_state=0)
+print("This is training dataset model (80%):")
+print(x_train)
+print("This is testing dataset model (20%):")
+print(x_test)
